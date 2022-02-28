@@ -5,6 +5,8 @@ import formatDate from '../helpers/formatDate'
 import Link from 'next/link'
 import Wrapper from '../components/Wrapper'
 import styles from '../styles/Blog.module.css'
+import getPostsFromResponse from '../helpers/getPostsFromResponse'
+import config from '../config'
 
 const Blog : NextPage = (props : any) => {
 
@@ -13,13 +15,13 @@ const Blog : NextPage = (props : any) => {
 
     <div>
       <Head>
-        <title>Blog | Ideas and resources</title>
-        <meta name="description" content="All of my ideas and resources and experiences" />
+        <title>{config.meta.blogPageTitle}</title>
+        <meta name="description" content={config.meta.blogPageDescription} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
       <main className={styles.main}>
-          <p className={styles.intro}>I write about tech, experiences, thoughts, ideas, religion and life in general. Check out my posts below</p>
+          <p className={styles.intro}>Write something cool about yourself here. go crazy</p>
           <div className={styles.blogListDiv}>
               {
                   props.posts.map((p : any)=> {
@@ -28,6 +30,7 @@ const Blog : NextPage = (props : any) => {
                           <div className={styles.meta}>
                           <p>{formatDate(p.publishedDate)}</p>
                           <p>{p.tags.join(", ")}</p></div>
+                          { p.excerpt !== "" ? <p>{p.excerpt}</p> : null}
                             </div>
                   })
               }
@@ -41,12 +44,13 @@ const Blog : NextPage = (props : any) => {
 export const getStaticProps = async ()=> {
 
         const response = await fetchBlogPosts()
-        const posts = await response.json()
+        const res = await response.json()
+        const posts = getPostsFromResponse(res)
 
 
     return {
         props : {
-        posts : posts.data.blogPostCollection.items
+        posts : posts
     }
 }
 

@@ -43,6 +43,7 @@ const response  = await fetchBlogPaths();
 let res = await response.json()
 
 //takes in a response and returns an array of slugs -- custom to this site
+// change the custom function from the /helpers/setPathsFromResponse.ts
 const paths = setPathsFromResponse(res)
 
 return {

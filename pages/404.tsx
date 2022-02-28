@@ -8,7 +8,6 @@ const CustomErrorPage: NextPage = () => {
     <div>
       <Head>
         <title>Ooops! Page not found</title>
-        <meta name="description" content="Burrow is Fawaz's personal site where he writes about tech, religion and life in general. The name is inspired from th Weasley's cozy home in Harry Potter" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
