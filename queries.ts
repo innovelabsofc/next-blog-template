@@ -6,7 +6,8 @@ export const blogPostsQuery = {
               title,
               slug,
               tags,
-              publishedDate
+              publishedDate,
+              excerpt,
 
         
             }
@@ -32,7 +33,8 @@ export const blogPostBySlugQuery = {
             author,
             publishedDate,
             tags,
-            article
+            article,
+            description
           }
         }
         }`

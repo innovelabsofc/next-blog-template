@@ -30,7 +30,7 @@ const Blog : NextPage = (props : any) => {
                           <div className={styles.meta}>
                           <p>{formatDate(p.publishedDate)}</p>
                           <p>{p.tags.join(", ")}</p></div>
-                          { p.excerpt !== "" ? <p>{p.excerpt}</p> : null}
+                          { p.excerpt !== "" ? <p className={styles.excerpt}>{p.excerpt}</p> : null}
                             </div>
                   })
               }

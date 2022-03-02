@@ -1,6 +1,8 @@
 const getPostsFromResponse = (res : any) => {
 
+
 return res.data.blogPostCollection.items
+
 
 
 }

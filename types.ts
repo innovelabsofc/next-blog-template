@@ -6,8 +6,9 @@ export interface IPost {
   title: string;
   author: string;
   publishedDate: string;
-  tags: [string];
+  tags?: [string];
   article: string;
+  description? : string
 }
 
 export interface IBlogPostProps {
