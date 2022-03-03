@@ -9,12 +9,14 @@ import setPathsFromResponse from '../../helpers/setPathsFromResponse'
 import styles from '../../styles/Slug.module.css'
 import { IBlogPostProps, IPost } from '../../types'
 import config from '../../config'
+import BreadCrumbs from '../../components/BreadCrumbs'
 
 
-const BlogPost: NextPage<IBlogPostProps> =(props : { post : IPost})=> {
+const BlogPost: NextPage<IBlogPostProps> =(props)=> {
 
   const post = props.post
   console.log(props)
+
 
   return (
     <div>
@@ -27,6 +29,7 @@ const BlogPost: NextPage<IBlogPostProps> =(props : { post : IPost})=> {
     <main className={styles.main}>
     <BlogHead post={post} />
     <hr />
+    <BreadCrumbs slug={props.slug}/>
     <Article post={post} />
 
     </main>
@@ -61,7 +64,8 @@ const response = await fetchBlogPostBySlug(params.slug)
 const res = await response.json()
 return {
   props : {
-    post : res.data.blogPostCollection.items[0]
+    post : res.data.blogPostCollection.items[0],
+    slug : params.slug
   }
 }
 

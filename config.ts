@@ -1,6 +1,7 @@
 const config : any = {}
 
 config.siteTitle = "Site Title",
+config.credits = "created by fawaz"
 
 config.meta = {
 

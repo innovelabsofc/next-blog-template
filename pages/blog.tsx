@@ -29,7 +29,8 @@ const Blog : NextPage = (props : any) => {
                           <h3 className={styles.postTitle}><Link href={`/blog/${p.slug}`}>{p.title}</Link></h3>
                           <div className={styles.meta}>
                           <p>{formatDate(p.publishedDate)}</p>
-                          <p>{p.tags.join(", ")}</p></div>
+                          { p.tags? <p>{p.tags.join(", ")}</p> : null }
+                          </div>
                           { p.excerpt !== "" ? <p className={styles.excerpt}>{p.excerpt}</p> : null}
                             </div>
                   })

@@ -1,4 +1,5 @@
 import React from 'react'
+import config from '../config'
 
 const Footer = () => {
 
@@ -15,7 +16,7 @@ const style : any = {
 
   return (
     <footer style={style.container}>
-        <p>Made by Fawaz Sullia with Nextjs</p>
+        <p>{config.credits}</p>
     </footer>
   )
 }

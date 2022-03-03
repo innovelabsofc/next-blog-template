@@ -13,5 +13,6 @@ export interface IPost {
 
 export interface IBlogPostProps {
     post : IPost,
-    children : ReactChildren
+    children : ReactChildren,
+    slug :  string
 }
